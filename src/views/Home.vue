@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <el-button>默认按钮</el-button>
+     <el-button type="text" @click="open">点击打开</el-button>
   </div>
 </template>
 
@@ -8,7 +8,18 @@
 // @ is an alias to /src
 
 export default {
-  name: 'Home',
- 
-}
+    methods: {
+      open() {
+        this.$alert('每天开心', '嘿嘿', {
+          confirmButtonText: '确定',
+          callback: action => {
+            this.$message({
+              type: 'info',
+              message: `action: ${ action }`
+            });
+          }
+        });
+      }
+    }
+  }
 </script>
